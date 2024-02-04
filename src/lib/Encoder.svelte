@@ -8,8 +8,7 @@
 	}
 
 	let { input, name, EncodeWorker } = $props<Props>();
-
-	const result = encode(EncodeWorker, () => input);
+	let result = encode(EncodeWorker, () => input);
 </script>
 
 <li>

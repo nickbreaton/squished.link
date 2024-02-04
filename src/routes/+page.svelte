@@ -7,7 +7,7 @@
 
 	let text = $state('');
 
-	const encoders = [
+	let encoders = [
 		{
 			name: 'encodeURIComponent',
 			EncodeWorker: EncodeURIComponentWorker

@@ -5,10 +5,10 @@ export function encode(EncodeWorker: new () => Worker, signal: () => string) {
 	let pending = $state(true);
 
 	$effect(() => {
-		const encoder = createEncoder(new EncodeWorker());
+		let encoder = createEncoder(new EncodeWorker());
 
 		$effect(() => {
-			const input = signal();
+			let input = signal();
 			let stale = false;
 
 			pending = true;
