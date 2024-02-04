@@ -16,7 +16,6 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "8.56.0",
@@ -37,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"@jsonurl/jsonurl": "^1.1.7",
+		"@sveltejs/adapter-static": "^3.0.1",
 		"base64url": "^3.0.1",
 		"buffer": "^6.0.3",
 		"comlink": "^4.4.1",
