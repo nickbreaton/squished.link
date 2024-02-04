@@ -1,33 +1,31 @@
 <script lang="ts">
-	import Compressor from '$lib/Compressor.svelte';
-	import { compute } from '$lib/compute.svelte';
-
 	import Base64URLWorker from '$lib/workers/base64url?worker';
 	import JsonURLWorker from '$lib/workers/jsonurl?worker';
 	import JsonCrushWorker from '$lib/workers/jsoncrush?worker';
+	import Encoder from '$lib/Encoder.svelte';
 
-	const compressors = [
+	let text = $state('');
+
+	const encoders = [
 		{
 			name: 'Base64 URL',
-			Worker: Base64URLWorker
+			EncodeWorker: Base64URLWorker
 		},
 		{
 			name: 'JSON URL',
-			Worker: JsonURLWorker
+			EncodeWorker: JsonURLWorker
 		},
 		{
 			name: 'JSON Crush',
-			Worker: JsonCrushWorker
+			EncodeWorker: JsonCrushWorker
 		}
 	];
-
-	let text = $state('');
 </script>
 
 <input bind:value={text} />
 
 <ul>
-	{#each compressors as compressor}
-		<Compressor {...compressor} input={text ?? ''} />
+	{#each encoders as encoder}
+		<Encoder {...encoder} input={text ?? ''} />
 	{/each}
 </ul>

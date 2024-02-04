@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { compute } from './compute.svelte';
+	import { encode } from './encode.svelte';
 
 	interface Props {
 		name: string;
-		Worker: new () => Worker;
+		EncodeWorker: new () => Worker;
 		input: string;
 	}
 
-	let { input, name, Worker } = $props<Props>();
+	let { input, name, EncodeWorker } = $props<Props>();
 
-	const result = compute(Worker, () => input);
+	const result = encode(EncodeWorker, () => input);
 </script>
 
 <li>

@@ -1,11 +1,11 @@
-import { wrap } from 'comlink';
+import { createEncoder } from './encoder';
 
-export function compute(Worker: new () => Worker, signal: () => string) {
+export function encode(EncodeWorker: new () => Worker, signal: () => string) {
 	let value = $state('');
 	let pending = $state(true);
 
 	$effect(() => {
-		const worker = wrap<(value: string) => string>(new Worker());
+		const encoder = createEncoder(new EncodeWorker());
 
 		$effect(() => {
 			const input = signal();
@@ -19,7 +19,8 @@ export function compute(Worker: new () => Worker, signal: () => string) {
 				return;
 			}
 
-			worker(input)
+			encoder
+				.encode(input)
 				.then((result) => {
 					if (!stale) {
 						// TODO: add time to parse (computed in worker)
