@@ -1,9 +1,11 @@
 <script lang="ts">
+	import Encoder from '$lib/Encoder.svelte';
+
 	import Base64URLWorker from '$lib/workers/base64url?worker';
 	import JsonURLWorker from '$lib/workers/jsonurl?worker';
 	import JsonCrushWorker from '$lib/workers/jsoncrush?worker';
 	import EncodeURIComponentWorker from '$lib/workers/encodeURIComponent?worker';
-	import Encoder from '$lib/Encoder.svelte';
+	import LzStringWorker from '$lib/workers/lz-string?worker';
 
 	let text = $state('');
 
@@ -21,8 +23,12 @@
 			EncodeWorker: JsonURLWorker
 		},
 		{
-			name: 'JSON Crush',
+			name: 'JSON Crush (URI encoded)',
 			EncodeWorker: JsonCrushWorker
+		},
+		{
+			name: 'lz-string (compressToEncodedURIComponent)',
+			EncodeWorker: LzStringWorker
 		}
 	];
 </script>

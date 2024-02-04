@@ -23,6 +23,9 @@ dependencies:
   jsoncrush:
     specifier: ^1.1.8
     version: 1.1.8
+  lz-string:
+    specifier: ^1.5.0
+    version: 1.5.0
 
 devDependencies:
   '@playwright/test':
@@ -1578,6 +1581,11 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lz-string@1.5.0:
+    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
+    hasBin: true
+    dev: false
 
   /magic-string@0.30.6:
     resolution: {integrity: sha512-n62qCLbPjNjyo+owKtveQxZFZTBm+Ms6YoGD23Wew6Vw337PElFNifQpknPruVRQV57kVShPnLGo9vWxVhpPvA==}
